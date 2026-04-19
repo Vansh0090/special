@@ -614,3 +614,409 @@ p {
         font-size: 0.9rem;
     }
 }
+
+/* Scroll Progress Bar */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(to right, #8bb8e8, #f48fb1);
+    z-index: 2000;
+    transition: width 0.1s ease;
+    box-shadow: 0 0 10px rgba(139, 184, 232, 0.5);
+}
+
+/* Wish Section Styles */
+.wish-section {
+    width: 100vw;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    padding: 10vh 20px;
+}
+
+.wish-container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.wish-container h2 {
+    margin-bottom: 2rem;
+    color: #8bb8e8;
+}
+
+.wish-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.wish-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+}
+
+#wish-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #444;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.wish-text-animate {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+/* Glass Button */
+.glass-btn {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.glass-btn:hover {
+    background: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(244, 143, 177, 0.3);
+    color: #f48fb1;
+}
+
+.glass-btn:active {
+    transform: scale(0.98);
+}
+
+/* Floating Heart Particle */
+.floating-heart {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    font-size: 1.5rem;
+    animation: floatUpAndFade 2s forwards ease-out;
+}
+
+@keyframes floatUpAndFade {
+    0% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+        transform: translate(0, -20px) scale(1.2);
+    }
+    100% {
+        transform: translate(var(--dx), -150px) scale(1) rotate(var(--rot));
+        opacity: 0;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .wish-card {
+        padding: 2rem 1.5rem;
+        min-height: 150px;
+    }
+    
+    #wish-text {
+        font-size: 1rem;
+    }
+}
+
+/* Music Toggle Button removed */
+
+/* Pulsing Heart Feature */
+.glass-heart-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 25px rgba(244, 143, 177, 0.2);
+}
+
+.heart-icon-inner {
+    display: inline-block;
+    animation: simple-pulse 2s infinite ease-in-out;
+}
+
+@keyframes simple-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.glass-heart-btn:hover {
+    transform: scale(1.1) rotate(10deg);
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 15px 35px rgba(244, 143, 177, 0.4);
+}
+
+/* Secret Heart Overlay */
+.heart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.05); /* Very subtle base */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.heart-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.overlay-content {
+    max-width: 600px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 40px;
+    padding: 4rem 3rem;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
+}
+
+.typewriter-text {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #444;
+    font-family: 'Playfair Display', serif;
+    min-height: 150px;
+    margin-bottom: 2rem;
+}
+
+.close-btn {
+    background: #f48fb1;
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(244, 143, 177, 0.3);
+}
+
+.close-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(244, 143, 177, 0.5);
+    background: #e91e63;
+}
+
+/* Burst Particles Sparkle */
+.sparkle-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 3001;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+    animation: sparkle-fade 1.5s forwards ease-out;
+}
+
+@keyframes sparkle-fade {
+    0% { transform: translate(0, 0) scale(1); opacity: 1; }
+    100% { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; }
+}
+
+/* Background Video Loop */
+.video-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.video-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3; /* Keeping it soft */
+    filter: blur(5px); /* Ethereal feel */
+}
+
+/* Journey Section removed */
+
+/* Reasons Card Deck */
+.reasons-section {
+    padding: 10vh 20px;
+    text-align: center;
+    min-height: 80vh;
+}
+
+.reasons-section h2 {
+    margin-bottom: 3rem;
+    color: #f48fb1;
+    font-family: 'Playfair Display', serif;
+}
+
+.deck-container {
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.card-deck {
+    position: relative;
+    width: 280px;
+    height: 380px;
+}
+
+.reason-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    transform: rotate(var(--rot, 0deg)) rotateY(0deg); /* Fixed to allow both scatter and flip */
+}
+
+.reason-card.flipped {
+    transform: rotate(var(--rot, 0deg)) rotateY(180deg); /* Fixed to allow both scatter and flip */
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+}
+
+.card-front {
+    background: linear-gradient(135deg, #ffffff 0%, #fff9fb 100%);
+    border: 1px solid rgba(244, 211, 217, 0.5);
+}
+
+.card-back {
+    background: #ffffff;
+    border: 1px solid rgba(139, 184, 232, 0.5);
+    transform: rotateY(180deg);
+    text-align: center;
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-front h4 {
+    color: #f48fb1;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+}
+
+.card-back p {
+    font-size: 1.15rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+.deck-controls {
+    margin-top: 2rem;
+    color: #888;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+/* Additional Responsive fixes */
+@media (max-width: 768px) {
+    .card-deck {
+        width: 260px;
+        height: 340px;
+    }
+    .music-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
+    }
+}
+
+/* Card Deck Cycling Animation */
+.reason-card.cycling {
+    animation: cycle-out 0.8s cubic-bezier(0.45, 0, 0.55, 1) forwards;
+    pointer-events: none; /* Fix: Prevent the cycling card from blocking clicks to the card underneath */
+}
+
+@keyframes cycle-out {
+    0% {
+        transform: rotate(var(--rot)) rotateY(180deg) translateX(0);
+        opacity: 1;
+    }
+    40% {
+        transform: rotate(calc(var(--rot) + 15deg)) rotateY(180deg) translateX(300px) rotate(20deg);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    60% {
+        transform: rotate(0deg) rotateY(0deg) translateX(0);
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}

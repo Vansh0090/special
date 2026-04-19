@@ -13,6 +13,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Background Music removed -->
+    <button id="heart-btn" class="glass-heart-btn" title="A Secret for Vritu">
+        <span class="heart-icon-inner">❤️</span>
+    </button>
+
+    <div id="heart-overlay" class="heart-overlay">
+        <div class="overlay-content">
+            <div id="typewriter-text" class="typewriter-text"></div>
+            <button id="close-overlay" class="close-btn">Close ✨</button>
+        </div>
+    </div>
+
+    <!-- Background Video Loop -->
+    <div class="video-bg-container">
+        <video autoplay muted loop playsinline class="video-bg">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-background-of-a-gentle-pink-sky-with-small-white-dots-40916-large.mp4" type="video/mp4">
+        </video>
+    </div>
+
     <!-- Ambient Parallax Background -->
     <div class="parallax-bg" id="parallax-bg">
         <div class="orb orb-1" data-speed="2"></div>
@@ -104,6 +126,32 @@
         </article>
     </section>
 
+    <!-- Wish Generator Section -->
+    <section class="wish-section fade-in-element">
+        <div class="wish-container">
+            <h2>A Little Something For You</h2>
+            <div class="wish-card" id="wish-card">
+                <p id="wish-text">Click the button below to reveal a special note...</p>
+            </div>
+            <button id="generate-wish-btn" class="glass-btn">Reveal a Wish ✨</button>
+        </div>
+    </section>
+
+    <!-- Journey Counter Section removed -->
+
+    <!-- Reasons Why Card Deck -->
+    <section class="reasons-section fade-in-element">
+        <h2>Reasons Why I Love You</h2>
+        <div class="deck-container">
+            <div class="card-deck" id="card-deck">
+                <!-- Cards will be injected via JS for easier management -->
+            </div>
+        </div>
+        <div class="deck-controls">
+            <p>Tap a card to flip it!</p>
+        </div>
+    </section>
+
     <!-- Envelope Section -->
     <section class="envelope-section">
         <div class="envelope-wrapper" id="envelope-wrapper">
@@ -114,8 +162,8 @@
                 <div class="letter">
                     <div class="letter-content">
                         <h3>My Dearest Vritu,</h3>
-                        <p>I just wanted to take a moment to remind you of how incredibly special you are to me. Every moment with you is a treasure, and I can't wait for all our adventures to come.</p>
-                        <p>You mean the world to me.</p>
+                        <p>Every single day with you feels like a beautiful dream I never want to wake up from. You've taught me what true love feels like, and I promise to cherish, protect, and love you with everything I have for the rest of our lives.</p>
+                        <p>You aren't just my partner—you are my safe place, my peace, and my home. You mean more to me than words could ever describe, and I'm the luckiest person in the world simply because I have you in it.</p>
                         <p class="signature">Forever Yours ❤️</p>
                     </div>
                 </div>
